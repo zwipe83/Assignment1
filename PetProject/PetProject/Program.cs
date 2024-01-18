@@ -5,8 +5,10 @@
         static void Main(string[] args)
         {
             Pet pet = new Pet();
+            TicketSeller tickets = new TicketSeller();
 
             pet.Run();
+            tickets.Run();
         }
     }
 }
