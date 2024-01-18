@@ -19,23 +19,24 @@ namespace PetProject
             name = Console.ReadLine();
 
             Console.WriteLine("\nEnter age of pet(year(s)):");
-            age = int.Parse(Console.ReadLine());
+            if(!int.TryParse(Console.ReadLine(), out age))
+            {
+                age = 0;
+            }
 
             Console.WriteLine("\nIs the pet a female(y/n)?");
-            string answer = Console.ReadLine();
+            string? answer = Console.ReadLine();
             if(answer == "y" || answer == "yes") 
             {
                 isFemale = true;
-                var dummy = 0;
             }
             else
             {
                 isFemale = false;
-                var dummy = 0;
             }
         }
 
-        internal void ShowData()
+        private void ShowData()
         {
             Console.WriteLine($"\nYour pets' name is: {name}");
             Console.WriteLine(isFemale ? $"\nHer age is {age} year" : $"\nHis age is {age} year");

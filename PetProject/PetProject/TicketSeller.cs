@@ -24,15 +24,24 @@ namespace PetProject
         private void SavePrice()
         {
             Console.WriteLine("\nWhat is the cost of a ticket?");
-            price = decimal.Parse(Console.ReadLine());
+            if (!decimal.TryParse(Console.ReadLine(), out price))
+            {
+                price = 0.0M;
+            }
         }
 
         private void SaveVisitors()
         {
             Console.WriteLine("\nHow many adults?");
-            numberOfAdults = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out numberOfAdults))
+            {
+                numberOfAdults = 0;
+            }
             Console.WriteLine("\nHow many children?");
-            numberOfchildren = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out numberOfchildren))
+            {
+                numberOfchildren = 0;
+            }
         }
 
         private void CalculateCost()
@@ -42,7 +51,7 @@ namespace PetProject
 
         private void ShowCost()
         {
-            Console.WriteLine($"\n{name}, Your total cost will be: {totalCost.ToString("N2")}");                
+            Console.WriteLine($"\n{name}, Your total cost will be: {totalCost:N2}");                
         }
 
         public void Run()
