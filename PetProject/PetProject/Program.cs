@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Pet pet = new Pet();
+
+            pet.Run();
         }
     }
 }
