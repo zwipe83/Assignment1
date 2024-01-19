@@ -1,9 +1,5 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.IO;
 
 namespace PetProject
 {
@@ -16,6 +12,7 @@ namespace PetProject
         private int numberOfTracks;
         private string? format;
         private string? producer;
+        private bool artistIsAlive;
 
         private void SaveName()
         {
@@ -50,6 +47,11 @@ namespace PetProject
             producer = "";
         }
 
+        private void SaveArtisIsAlive() 
+        {
+            artistIsAlive = true;
+        }
+
         public void DisplayInfo()
         {
             Console.WriteLine($"{name} - {artist} - {producer} - {numberOfTracks} - {format} - {genre} - {yearOfRelease}");
@@ -64,6 +66,7 @@ namespace PetProject
             SaveNumberOfTracks();
             SaveFormat();
             SaveProducer();
+            SaveArtisIsAlive();
             DisplayInfo();
         }
     }
