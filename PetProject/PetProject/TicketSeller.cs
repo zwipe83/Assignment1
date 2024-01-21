@@ -3,7 +3,7 @@
     internal class TicketSeller
     {
         private string? name;
-        private decimal price;
+        private decimal price = 100.0m;
         private int numberOfAdults;
         private int numberOfchildren;
         private decimal totalCost;
@@ -43,19 +43,25 @@
             totalCost = (numberOfAdults * price) + (numberOfchildren * (price - (price * childrensDiscount)));
         }
 
-        private void ShowCost()
+        private void DisplayInfo()
         {
             Console.WriteLine($"\n{name}, Your total cost will be: {totalCost:N2}");                
         }
 
-        public void Run()
+        private void SaveData()
         {
-            Console.WriteLine("\nHello and welcome to my circus!");
             SaveName();
             SavePrice();
             SaveVisitors();
+        }
+
+
+        public void Run()
+        {
+            Console.WriteLine("\n------------------------\nHello and welcome to my circus!");
+            SaveData();
             CalculateCost();
-            ShowCost();
+            DisplayInfo();
         }
     }
 }

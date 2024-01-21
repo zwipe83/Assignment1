@@ -2,24 +2,34 @@
 {
     internal class Pet
     {
+        /// <summary>
+        /// Delare fields
+        /// </summary>
         private string? name;
         private int age;
         private bool isFemale;
 
-        private void ReadData()
+        /// <summary>
+        /// Read and save data from console input
+        /// </summary>
+        private void SaveData()
         {
             Console.WriteLine("\nEnter name of pet:");
             name = Console.ReadLine();
 
-            Console.WriteLine("\nEnter age of pet(year(s)):");
+            Console.WriteLine($"\nWhat is {name}s' age?");
             if(!int.TryParse(Console.ReadLine(), out age))
             {
                 age = 0;
             }
 
-            Console.WriteLine("\nIs the pet a female(y/n)?");
+            Console.WriteLine($"\nIs {name} a female(y/n)?");
             string? answer = Console.ReadLine();
-            if(answer == "y" || answer == "yes") 
+            answer = answer?.Trim();
+
+            char response = ((answer is not null) ? answer[0] : '\0');
+
+            if((response == 'y') || (response == 'Y')) 
             {
                 isFemale = true;
             }
@@ -29,17 +39,23 @@
             }
         }
 
-        private void ShowData()
+        /// <summary>
+        /// Retrieve and display data from object fields
+        /// </summary>
+        private void DisplayInfo()
         {
             Console.WriteLine($"\nYour pets' name is: {name}");
-            Console.WriteLine(isFemale ? $"\nHer age is {age} year" : $"\nHis age is {age} year");
+            Console.WriteLine(isFemale ? $"Her age is {age} year" : $"His age is {age} year");
         }
 
+        /// <summary>
+        /// Entry point for start of an instance of this class
+        /// </summary>
         public void Run()
         {
             Console.WriteLine("Hello and welcome to me pet project!");
-            ReadData();
-            ShowData();
+            SaveData();
+            DisplayInfo();
         }
     }
 }
