@@ -8,65 +8,50 @@ namespace PetProject
         private string? name;
         private string? artist;
         private int yearOfRelease;
-        private string? genre;
-        private int numberOfTracks;
-        private string? format;
         private string? producer;
-        private bool artistIsAlive;
 
         private void SaveName()
         {
-            name = "";
+            Console.WriteLine("\nWhat is the name of youe favorite album?");
+            name = Console.ReadLine();
         }
 
-        private void SaveArtist() 
+        private void SaveArtist()
         {
-            artist = "";
+            Console.WriteLine("\nWhat is the artists name?");
+            artist = Console.ReadLine();
         }
         private void SaveYear()
         {
-            yearOfRelease = 0;
-        }
-
-        private void SaveGenre()
-        {
-            genre = "";
-        }
-
-        private void SaveNumberOfTracks()
-        { 
-            numberOfTracks = 0;
-        }        
-        private void SaveFormat()
-        {
-            format = "";
+            Console.WriteLine("\nWhat year was the album released?");
+            if (!int.TryParse(Console.ReadLine(), out yearOfRelease))
+            {
+                yearOfRelease = 0;
+            }
         }
 
         private void SaveProducer()
         {
-            producer = "";
+            Console.WriteLine("\nWho produced the album?");
+            producer = Console.ReadLine();
         }
-
-        private void SaveArtisIsAlive() 
-        {
-            artistIsAlive = true;
-        }
-
-        public void DisplayInfo()
-        {
-            Console.WriteLine($"{name} - {artist} - {producer} - {numberOfTracks} - {format} - {genre} - {yearOfRelease}");
-        }
-
-        public void Run()
+        private void SaveData()
         {
             SaveName();
             SaveArtist();
             SaveYear();
-            SaveGenre();
-            SaveNumberOfTracks();
-            SaveFormat();
             SaveProducer();
-            SaveArtisIsAlive();
+        }
+
+        private void DisplayInfo()
+        {
+            Console.WriteLine($"{name} - {artist} - {producer} - {yearOfRelease}");
+        }
+
+        public void Run()
+        {
+            Console.WriteLine("\n------------------------\nWelcome to my Music hall of fame!");
+            SaveData();
             DisplayInfo();
         }
     }
