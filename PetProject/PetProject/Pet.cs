@@ -1,13 +1,22 @@
-﻿namespace PetProject
+﻿/// < summary >
+/// Filename: Pet.cs
+/// Created on: 2024-01-20 00:00:00
+/// Author: Samuel Jeffman
+/// </summary>
+
+namespace PetProject
 {
+    /// <summary>
+    /// Class Pet
+    /// </summary>
     internal class Pet
     {
         /// <summary>
-        /// Delare fields
+        /// Declare fields
         /// </summary>
-        private string? name;
-        private int age;
-        private bool isFemale;
+        private string? name;   //name of pet
+        private int age;        //age of pet
+        private bool isFemale;  //Is the pet female?
 
         /// <summary>
         /// Read and save data from console input
@@ -44,7 +53,7 @@
         /// </summary>
         private void DisplayInfo()
         {
-            Console.WriteLine($"\nYour pets' name is: {name}");
+            Console.WriteLine($"\n\nYour pets' name is: {name}");
             Console.WriteLine(isFemale ? $"Her age is {age} year" : $"His age is {age} year");
         }
 
@@ -53,7 +62,7 @@
         /// </summary>
         public void Run()
         {
-            Console.WriteLine("Hello and welcome to me pet project!");
+            Console.WriteLine("Hello and welcome to my pet project!");
             SaveData();
             DisplayInfo();
         }

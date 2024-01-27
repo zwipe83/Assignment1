@@ -1,29 +1,48 @@
-﻿namespace PetProject
+﻿/// < summary >
+/// Filename: TicketSeller.cs
+/// Created on: 2024-01-20 00:00:00
+/// Author: Samuel Jeffman
+/// </summary>
+
+namespace PetProject
 {
+    /// <summary>
+    /// Class
+    /// </summary>
     internal class TicketSeller
     {
+        //Fields
         private string? name;
-        private decimal price = 100.0m;
+        private double price = 100.0;
         private int numberOfAdults;
         private int numberOfchildren;
-        private decimal totalCost;
-        private readonly decimal childrensDiscount = 0.25M;
+        private double amountToPay;
+        private double childrensDiscount = 0.25;
 
+        /// <summary>
+        /// Save name of visitor
+        /// </summary>
         private void SaveName()
         {
             Console.WriteLine("\nWhat is your name?");
             name = Console.ReadLine();
         }
 
+        /// <summary>
+        /// Save price of ticket, currently not used
+        /// </summary>
         private void SavePrice()
         {
             Console.WriteLine("\nWhat is the cost of a ticket?");
-            if (!decimal.TryParse(Console.ReadLine(), out price))
+            if (!double.TryParse(Console.ReadLine(), out price))
             {
-                price = 0.0M;
+                price = 0.0;
             }
         }
 
+        /// <summary>
+        /// Save number of visitors, adults and children
+        /// </summary>
         private void SaveVisitors()
         {
             Console.WriteLine("\nHow many adults?");
@@ -38,27 +57,38 @@
             }
         }
 
+        /// <summary>
+        /// Calculate amount to pay
+        /// </summary>
         private void CalculateCost()
         {
-            totalCost = (numberOfAdults * price) + (numberOfchildren * (price - (price * childrensDiscount)));
+            amountToPay = (numberOfAdults * price) + (numberOfchildren * (price - (price * childrensDiscount)));
         }
 
+        /// <summary>
+        /// Display information on how much to pay
+        /// </summary>
         private void DisplayInfo()
         {
-            Console.WriteLine($"\n{name}, Your total cost will be: {totalCost:N2}");                
+            Console.WriteLine($"\n\n{name}, your total cost will be: {amountToPay:N2}");                
         }
 
+        /// <summary>
+        /// Save data
+        /// </summary>
         private void SaveData()
         {
             SaveName();
-            SavePrice();
+            //SavePrice(); //Currently not used.
             SaveVisitors();
         }
 
-
+        /// <summary>
+        /// Run method
+        /// </summary>
         public void Run()
         {
-            Console.WriteLine("\n------------------------\nHello and welcome to my circus!");
+            Console.WriteLine("------------------------\nHello and welcome to my circus!");
             SaveData();
             CalculateCost();
             DisplayInfo();
