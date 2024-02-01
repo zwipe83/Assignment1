@@ -38,7 +38,7 @@ namespace PetProject
         private void SaveNumberOfTracks()
         {
             Console.WriteLine("\nHow many songs are there on the album?");
-            if (!int.TryParse(Console.ReadLine(), out yearOfRelease))
+            if (!int.TryParse(Console.ReadLine(), out numOfTracks))
             {
                 numOfTracks = 0;
             }
