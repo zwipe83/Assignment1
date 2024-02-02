@@ -70,7 +70,7 @@ namespace PetProject
         /// </summary>
         private void DisplayInfo()
         {
-            Console.WriteLine($"\n\n{name}, your total cost will be: {amountToPay:N2}");                
+            Console.WriteLine($"\n\n{name}, ticket prices are {price:N2} per ticket.\nYour total cost will be: {amountToPay:N2}, including a 25% discount for children.");                
         }
 
         /// <summary>

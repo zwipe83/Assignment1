@@ -33,8 +33,12 @@ namespace PetProject
             album.Run();
             Pause();
             monitor.Run();
+            Exit();
         }
 
+        /// <summary>
+        /// Pause input before moving on
+        /// </summary>
         static void Pause()
         {
             Console.WriteLine("\nPress Enter to continue to next part!");
@@ -42,6 +46,18 @@ namespace PetProject
             Console.Clear();
         }
 
+        /// <summary>
+        /// Pause input before moving on
+        /// </summary>
+        static void Exit()
+        {
+            Console.WriteLine("\nPress Enter to exit application!");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Setup layout of console window
+        /// </summary>
         static void SetupConsole()
         {
             Console.BackgroundColor = ConsoleColor.DarkGray;

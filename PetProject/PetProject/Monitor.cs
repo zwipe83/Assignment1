@@ -45,7 +45,8 @@ namespace PetProject
             Console.WriteLine("\nWhat date(yyyy-MM-dd) did you buy your monitor?");
             if (!DateTime.TryParse(Console.ReadLine(), out purchaseDate))
             {
-                purchaseDate = DateTime.Today;
+                Console.WriteLine("\nDate is not valid. Please try again.");
+                SavePurchaseDate();
             }
         }
         
@@ -88,7 +89,7 @@ namespace PetProject
         /// </summary>
         public void Run()
         {
-            Console.WriteLine("\n------------------------\nWelcome to the electronics store!");
+            Console.WriteLine("------------------------\nWelcome to the electronics store!");
             SaveData();
             DisplayInfo();
         }

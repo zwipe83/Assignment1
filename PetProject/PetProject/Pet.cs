@@ -34,9 +34,13 @@ namespace PetProject
 
             Console.WriteLine($"\nIs {name} a female(y/n)?");
             string? answer = Console.ReadLine();
-            answer = answer?.Trim();
 
-            char response = ((answer is not null) ? answer[0] : '\0');
+            if( answer != null )
+            {
+                answer = answer?.Trim();
+            }
+
+            char response = ((answer is not null && answer.Length > 0) ? answer[0] : '\0');
 
             if((response == 'y') || (response == 'Y')) 
             {
@@ -54,7 +58,7 @@ namespace PetProject
         private void DisplayInfo()
         {
             Console.WriteLine($"\n\nYour pets' name is: {name}");
-            Console.WriteLine(isFemale ? $"Her age is {age} year" : $"His age is {age} year");
+            Console.WriteLine(isFemale ? $"Her age is {age} year(s)" : $"His age is {age} year(s)");
         }
 
         /// <summary>
