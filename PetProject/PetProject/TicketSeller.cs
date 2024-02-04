@@ -62,7 +62,7 @@ namespace PetProject
         /// </summary>
         private void CalculateCost()
         {
-            amountToPay = (numberOfAdults * price) + (numberOfchildren * (price - (price * childrensDiscount)));
+            amountToPay = (numberOfAdults * price) + (numberOfchildren * (price * childrensDiscount));
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace PetProject
         /// </summary>
         private void DisplayInfo()
         {
-            Console.WriteLine($"\n\n{name}, ticket prices are {price:N2} per ticket.\nYour total cost will be: {amountToPay:N2}, including a 25% discount for children.");                
+            Console.WriteLine($"\n\n{name}, ticket prices are {price:N2} per ticket.\nYour total cost will be: {amountToPay:N2}, including a 75% discount for children.");                
         }
 
         /// <summary>
